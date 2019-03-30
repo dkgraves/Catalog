@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import random
 import string
 import httplib2
@@ -32,6 +32,7 @@ session = DBSession()
 # Show all the categories
 @app.route('/')
 @app.route('/category')
+@app.route('/category/')
 def showCategories():
     categories = session.query(Category).order_by(asc(Category.name))
     return render_template('categories.html', categories=categories)
@@ -61,9 +62,9 @@ def editCategory(category_id):
     if 'username' not in login_session:
         return redirect('/login')
     if editedCategory.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized \
-                to edit this category. Please create your own category in \
-                order to edit.');}</script><body onload='myFunction()'>"
+        flash('You are not authorized to edit this category.' +
+              ' Please create your own category')
+        return redirect(url_for('showCategories'))
     if request.method == 'POST':
         if request.form['name']:
             editedCategory.name = request.form['name']
@@ -81,9 +82,8 @@ def deleteCategory(category_id):
     if 'username' not in login_session:
         return redirect('/login')
     if categoryToDelete.user_id != login_session['user_id']:
-        return "<script>function myFunction() {alert('You are not authorized \
-        to delete this category. Please create your own category in order to \
-        delete.');}</script><body onload='myFunction()'>"
+        flash('You are not authorized to delete this category.')
+        return redirect(url_for('showCategories'))
     if request.method == 'POST':
         session.delete(categoryToDelete)
         flash('%s Successfully Deleted' % categoryToDelete.name)
@@ -112,9 +112,9 @@ def newCatItem(category_id):
         return redirect('/login')
     category = session.query(Category).filter_by(id=category_id).one()
     if login_session['user_id'] != category.user_id:
-        return "<script>function myFunction() {alert('You are not authorized to\
-        add items to this category. Please create your own category in order\
-        to add items.');}</script><body onload='myFunction()'>"
+        flash('You are not authorized to add items to this category.' +
+              ' Please create your own category')
+        return redirect(url_for('showItem', category_id=category_id))
     if request.method == 'POST':
             newItem = Item(name=request.form['name'], description=request.form
                            ['description'], category_id=category_id,
@@ -136,9 +136,9 @@ def editCatItem(category_id, item_id):
     editedItem = session.query(Item).filter_by(id=item_id).one()
     category = session.query(Category).filter_by(id=category_id).one()
     if login_session['user_id'] != category.user_id:
-        return "<script>function myFunction() {alert('You are not authorized\
-        to edit items in this category. Please create your own category in\
-        order to edit items.');}</script><body onload='myFunction()'>"
+        flash('You are not authorized to edit items in this category.' +
+              ' Please create your own category')
+        return redirect(url_for('showItem', category_id=category_id))
     if request.method == 'POST':
         if request.form['name']:
             editedItem.name = request.form['name']
@@ -162,9 +162,8 @@ def deleteCatItem(category_id, item_id):
     category = session.query(Category).filter_by(id=category_id).one()
     itemToDelete = session.query(Item).filter_by(id=item_id).one()
     if login_session['user_id'] != category.user_id:
-        return "<script> function myFunction() {alert('You are not authorized \
-        to delete items in this category. Please create your own category in\
-        order to delete items.');} </script><body onload = 'myFunction()'>"
+        flash('You are not authorized to delete items in this category.')
+        return redirect(url_for('showItem', category_id=category_id))
     if request.method == 'POST':
         session.delete(itemToDelete)
         session.commit()

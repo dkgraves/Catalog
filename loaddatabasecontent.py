@@ -35,14 +35,15 @@ item1 = Item(user_id=1, name="Shoes", description="Shoes with cleats",
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Football", description="Regulation \
-             football", category=category1)
+item2 = Item(user_id=1, name="Football",
+             description="Regulation football", category=category1)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Jersey", description="NFL style jersey for \
-             Atlanta Falcons size xlg", category=category1)
+item3 = Item(user_id=1, name="Jersey",
+             description="NFL style jersey for Atlanta Falcons size xlg",
+             category=category1)
 
 session.add(item3)
 session.commit()
@@ -55,20 +56,21 @@ session.add(category2)
 session.commit()
 
 
-item1 = Item(user_id=1, name="Soccer ball", description="Regulation \
-             black and white ball", category=category2)
+item1 = Item(user_id=1, name="Soccer ball",
+             description="Regulation black and white ball",
+             category=category2)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Shoes", description="Regulation shoes with \
-             removable cleats sixe 12", category=category2)
+item2 = Item(user_id=1, name="Shoes",
+             description="Regulation shoes size 12", category=category2)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Whistle", description="Standard sports \
-             whistle", category=category2)
+item3 = Item(user_id=1, name="Whistle",
+             description="Standard sports whistle", category=category2)
 
 session.add(item3)
 session.commit()
@@ -81,20 +83,20 @@ session.add(category1)
 session.commit()
 
 
-item1 = Item(user_id=1, name="Tackle box", description="Plano model 12, 3 \
-             tier box", category=category1)
+item1 = Item(user_id=1, name="Tackle box",
+             description="Plano model 12, 3 tier box", category=category1)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Fly rod", description="Bamboo hand made rod \
-             without a reel", category=category1)
+item2 = Item(user_id=1, name="Fly rod", description="Bamboo hand made rod",
+             category=category1)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Fly reel", description="BKG model 18 stainless \
-             steal reel", category=category1)
+item3 = Item(user_id=1, name="Fly reel",
+             description="BG model 8 stainless steal reel", category=category1)
 
 session.add(item3)
 session.commit()
@@ -110,20 +112,21 @@ category1 = Category(user_id=1, name="Woodworking")
 session.add(category1)
 session.commit()
 
-item1 = Item(user_id=1, name="Safety glasses", description="3M clear safety \
-             glasses with clear lens", category=category1)
+item1 = Item(user_id=1, name="Safety glasses",
+             description="3M clear safety glasses with clear lens",
+             category=category1)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Bandsaw", description="Jet 18 inch bandsaw \
-             model 818 with blade", category=category1)
+item2 = Item(user_id=1, name="Bandsaw",
+             description="Jet 18 inch bandsaw model 818", category=category1)
 
 session.add(item2)
 session.commit()
 
-item3 = Item(user_id=1, name="Tablesaw", description="Delta cabinet saw with \
-             10 inch blade", category=category1)
+item3 = Item(user_id=1, name="Tablesaw",
+             description="Delta cabinet saw, 10 inch", category=category1)
 
 session.add(item3)
 session.commit()
@@ -134,14 +137,16 @@ session.add(category1)
 session.commit()
 
 
-item1 = Item(user_id=1, name="Knitting needles", description="Set of needles \
-in small, medium and large", category=category1)
+item1 = Item(user_id=1, name="Knitting needles",
+             description="Set of needles in small, medium and large",
+             category=category1)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Yarn", description="Assortment of 5 rolls of \
-various colored yarn", category=category1)
+item2 = Item(user_id=1, name="Yarn",
+             description="Assortment of 5 rolls various colored yarn",
+             category=category1)
 
 session.add(item2)
 session.commit()
@@ -159,14 +164,15 @@ item9 = Item(user_id=1, name="Sewing machine", description="Singer model 4",
 session.add(item9)
 session.commit()
 
-item1 = Item(user_id=1, name="Needles", description="Assortment of 24 needles \
-in bulk package", category=category1)
+item1 = Item(user_id=1, name="Needles",
+             description="Assortment of 24 needles in bulk package",
+             category=category1)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Pattern", description="Assortment of 30 shirt \
-patterns", category=category1)
+item2 = Item(user_id=1, name="Pattern",
+             description="Assortment of 30 shirt patterns", category=category1)
 
 session.add(item2)
 session.commit()
@@ -179,14 +185,16 @@ session.add(category1)
 session.commit()
 
 
-item1 = Item(user_id=1, name="Safety vest", description="Orange safety vest, \
-one size fits most", category=category1)
+item1 = Item(user_id=1, name="Safety vest",
+             description="Orange safety vest, one size fits most",
+             category=category1)
 
 session.add(item1)
 session.commit()
 
-item2 = Item(user_id=1, name="Game bag", description "Camo colored two gallon \
-canvas bag with draw string", category=category1)
+item2 = Item(user_id=1, name="Game bag",
+             description="Camo colored two gallon canvas bag with draw string",
+             category=category1)
 
 session.add(item2)
 session.commit()

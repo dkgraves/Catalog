@@ -28,19 +28,23 @@
 		<div class="col-md-11 padding-none">
 			<h1>Catalog Log In/Out</h1>
 		</div>
-	</div>
+	</div> 
 	<div class="col-md-12 divider"></div>
 <!-- check to see if the user is already login -->	
-	<div class="row col-md-4">
-		<div class=col-md-4></div>
+	<div class="row">
+	    <div class="col-md-2"></div>
+		<div class="col-md-8">
+		
 		{% if 'username' not in session %}
 				<button id="signinButton">Google Sign In</button>
 				<div id="result"></div>
 		{% else %}
 				<a href="{{url_for('disconnect')}}">Click Here to Log Out </a>
 		{% endif %}
+		</div>  
 		<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-  	  	<div class=col-md-4></div>
+		<div class=col-md-2></div>
+		
   	</div> 		
     
     <script>
@@ -59,18 +63,7 @@
         console.log("ID Token: " + id_token);
       }
     </script>
-<!--  
-<a href="#" onclick="signOut();">Sign Out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
--->
-
+  
 	<script>
 	  $('#signinButton').click(function() {
 	    function signInCallback(authResult){
